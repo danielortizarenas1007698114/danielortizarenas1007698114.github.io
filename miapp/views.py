@@ -2,10 +2,11 @@ from django.shortcuts import render
 
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
 
 from django.urls import reverse_lazy
 
-from .models import Libro
+from .models import Libro, Ejemplar
 
 def cargar_inicio(request):
     return render(request, "miapp/index.html")
@@ -13,6 +14,12 @@ def cargar_inicio(request):
 class LibroList(ListView):
     model = Libro
     template_name = 'miapp/lista_libros.html'
+
+
+class LibroDetalle(DetailView):
+    model = Libro
+    template_name = 'miapp/detalle_libro.html'
+
 
 class LibroCreate(CreateView):
     model = Libro
@@ -34,4 +41,8 @@ class LibroDelete(DeleteView):
     success_url = reverse_lazy('listar_libros')
 
 
+class EjemplarLibro(ListView):
+    model = Ejemplar
+    template_name = 'miapp/ejemplar_libro.html'
+#    success_url = reverse_lazy('listar_libros')
 
