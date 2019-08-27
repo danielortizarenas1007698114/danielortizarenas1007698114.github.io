@@ -27,12 +27,13 @@
                 <td>{{ ejemplar.numeroejemplar }}</td>
                 <td>{{ ejemplar.fechadecompra }}</td>
                 <td>{{ ejemplar.libro }}</td>
+                <td><a href="{% url 'editar_ejemplar' ejemplar.id %}">Editar</a></td>
                 
             </tr>
         {% endfor %}
 
     </table>
-   
+    <button type="submit"><a href="{% url  %}"></a></button>
 
 {% endblock %}
 

@@ -13,7 +13,7 @@ class Prestamo(models.Model):
     fechaprestamo = models.DateField("Fecha de prestamo")
     nombre_cliente = models.CharField(max_length=40)
     telefono = models.CharField(max_length=45)
-    estado = models.BooleanField()
+    estado = models.BooleanField("actualmente posee el libro")
 
     def __str__(self):
         return "{0}-{1}".format(self.fechaprestamo, self.nombre_cliente)

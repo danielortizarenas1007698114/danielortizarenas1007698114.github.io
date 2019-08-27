@@ -46,3 +46,17 @@ class EjemplarLibro(ListView):
     template_name = 'miapp/ejemplar_libro.html'
 #    success_url = reverse_lazy('listar_libros')
 
+
+class EjemplarUpdate(UpdateView):
+    model = Ejemplar
+    template_name = 'miapp/editar_ejemplar.html'
+
+
+
+class EjemplarCreate(CreateView):
+    model = Ejemplar
+    fields = ['numeroejemplar','fechadecompra','libro']
+    template_name = 'miapp/nuevo_ejemplar.html'
+    #success_url = reverse_lazy('listar_libros')
+
+    
