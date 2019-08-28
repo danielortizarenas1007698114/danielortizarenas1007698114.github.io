@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 
 from .models import Libro, Ejemplar
 
+
 def cargar_inicio(request):
     return render(request, "miapp/index.html")
 
@@ -44,12 +45,14 @@ class LibroDelete(DeleteView):
 class EjemplarLibro(ListView):
     model = Ejemplar
     template_name = 'miapp/ejemplar_libro.html'
-#    success_url = reverse_lazy('listar_libros')
+    success_url = reverse_lazy('ejemplar_libro')
 
 
 class EjemplarUpdate(UpdateView):
     model = Ejemplar
+    fields = ['numeroejemplar', 'fechadecompra', 'libro']
     template_name = 'miapp/editar_ejemplar.html'
+    success_url = reverse_lazy('ejemplar_libro')
 
 
 
@@ -59,4 +62,6 @@ class EjemplarCreate(CreateView):
     template_name = 'miapp/nuevo_ejemplar.html'
     #success_url = reverse_lazy('listar_libros')
 
-    
+
+
+
