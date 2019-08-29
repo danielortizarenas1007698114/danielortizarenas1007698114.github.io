@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+<center>
+    <h2>Inicias sesión</h2>
+
+    <form method="POST" action="{% url 'login' %}">
+
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        
+        <div class="text-center">
+            <button class="btn btn-info" type="submit">Iniciar</button>
+        </div>
+
+    </form>
+</center>
+
+{% endblock %}
