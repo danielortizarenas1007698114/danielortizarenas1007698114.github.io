@@ -6,7 +6,7 @@ from django.views.generic.detail import DetailView
 
 from django.urls import reverse_lazy
 
-from .models import Libro, Ejemplar
+from .models import Libro, Ejemplar, Prestamo
 
 
 def cargar_inicio(request):
@@ -60,8 +60,23 @@ class EjemplarCreate(CreateView):
     model = Ejemplar
     fields = ['numeroejemplar','fechadecompra','libro']
     template_name = 'miapp/nuevo_ejemplar.html'
-    #success_url = reverse_lazy('listar_libros')
+    success_url = reverse_lazy('ejemplar_libro')
 
 
+class ListaPrestamo(ListView):
+    model = Prestamo
+    template_name = 'miapp/lista_prestamo.html'
+    success_url = reverse_lazy('cargar_inicio')
 
+
+class PrestamoUpdate(UpdateView):
+    model = Prestamo
+    fields = ['fechaprestamo', 'nombre_cliente', 'telefono', 'estado']
+    template_name = 'miapp/editar_ejemplar.html'
+    success_url = reverse_lazy('ejemplar_libro')
+
+class PrestamoDelete(DeleteView):
+    model = Prestamo
+    template_name = 'miapp/eliminar_prestamo.html'
+    success_url = reverse_lazy('lista_prestamo')
 

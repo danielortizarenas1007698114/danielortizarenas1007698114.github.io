@@ -2,38 +2,34 @@
 
 {% block principal %}
 
-    <h1>ejemplares disponibles</h1>
+    <h2>Ejemplares disponibles</h2>
 
-
-    <style>
-        table {
-            width: 100%;
-            border: 1px;
-        }
-        th, td {
-            height: 25%;
-        }
-    </style>
-
-    <table>
-        <tr>
-            <th>Numero ejemplar</th>
-            <th>fecha de compra</th>
-            <th>libro</th>
-        </tr>
-        {% for ejemplar in object_list %}
-            <tr>
-                
-                <td>{{ ejemplar.numeroejemplar }}</td>
-                <td>{{ ejemplar.fechadecompra }}</td>
-                <td>{{ ejemplar.libro }}</td>
-                <td><a href="{% url 'editar_ejemplar' ejemplar.id %}">Editar</a></td>
-                
-            </tr>
-        {% endfor %}
+  
 
     </table>
+    <table class="table table-dark">
+            <thead>
+                    <tr>
+                            <th>Numero ejemplar</th>
+                            <th>fecha de compra</th>
+                            <th>libro</th>
+                            <th>Editar</th>
+                    </tr>
+            </thead>
+            <tbody>
+                    {% for ejemplar in object_list %}
+                    <tr>
+                        
+                        <td>{{ ejemplar.numeroejemplar }}</td>
+                        <td>{{ ejemplar.fechadecompra }}</td>
+                        <td>{{ ejemplar.libro }}</td>
+                        <td><button type="submit" class="btn btn-light"><a href="{% url 'editar_ejemplar' ejemplar.id %}">Editar</a></button></td>
+                        
+                    </tr>
+                {% endfor %}
 
+            </tbody>
+    </table>
     
 
 {% endblock %}

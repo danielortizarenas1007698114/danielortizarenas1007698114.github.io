@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+    <h2>Listado de libros</h2>
+    
+    <table class="table table-dark">
+            <thead>
+              <tr>
+                    <th>Fecha de Prestamo</th>
+                    <th>Nombre del Cliente</th>
+                    <th>Telefono</th>
+                    <th>posee el libro</th>     
+                    <th>editar</th>               
+                    <th>eliminar</th>
+              </tr>
+            </thead>
+            <tbody>
+                    {% for prestamo in object_list  %}
+                    <tr>                        
+                            <td>{{ prestamo.fechaprestamo }}</a></td>
+                            <td>{{ prestamo.nombre_cliente }}</td>
+                            <td>{{ prestamo.telefono }}</td>
+                            {% if prestamo.estado  %}
+                                <td>Siza</td>
+                            {% else %}
+                                <td>nalgas...</td>
+                            {% endif %}
+                            <td><button type="submit" class="btn btn-light"><a href="{% url 'editar_prestamo' prestamo.id %}">Editar</a></button></td>
+                            <td><button type="submit" class="btn btn-light"><a href="{% url 'eliminar_prestamo' prestamo.id %}">Eliminar</a></button></td>                        
+                    </tr>
+                    {% endfor %}
+             
+            </tbody>
+          </table>
+
+{% endblock %}
+

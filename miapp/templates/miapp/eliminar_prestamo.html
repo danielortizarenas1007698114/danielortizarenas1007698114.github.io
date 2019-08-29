@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block principal %}
+
+<p>¿ estas seguro de querer eliminar {{ object.nombre }} ?</p>
+
+<form action="#" method="POST">
+
+    {% csrf_token %}
+
+    <button type="submit">eliminar >:v</button>
+
+</form>
+
+<a href="{% url 'lista_prestamo' %}">cancelar</a>
+
+{% endblock %}

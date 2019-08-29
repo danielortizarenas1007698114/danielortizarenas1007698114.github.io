@@ -10,17 +10,36 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Biblioteca</h1>
 
-    <nav>
-        <ul>
-            <li><a href= "{% url 'inicio' %}"> Inicio </a></li>
-            <li><a href= "{% url 'listar_libros' %}"> Libros </a></li>
-            <li><a href= "{% url 'ejemplar_libro' %}"> Ejemplares </a></li>
-            <li><a href= "#"> Prestamos </a></li>
-            <li><a href= "#"> Iniciar sesión </a></li>
-        </ul>
-    </nav>
+    <h2>Biblioteca</h2>
+
+    
+<nav id="barraNavegacion">
+    <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'inicio' %}">inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'listar_libros' %}">Libros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'ejemplar_libro' %}">Ejemplares</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'lista_prestamo' %}">Prestamos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Iniciar Sesión</a>
+        </li>        
+    </ul>
+</nav>
+
+
+
+
+
+
+
 
   
     {%  block principal %}
