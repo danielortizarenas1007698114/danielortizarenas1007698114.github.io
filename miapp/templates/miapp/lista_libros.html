@@ -22,9 +22,10 @@
                         <td>{{ libro.descripcion }}</td>
                         <td>{{ libro.isbn }}</td>
                         <td>{{ libro.copias }}</td>
+                        {% if user.is_authenticated %}
                         <td><a href="{% url 'editar_libro' libro.id %}">Editar</a></td>
                         <td><a href="{% url 'borrar_libro' libro.id %}">Borrar</a></td>
-                        
+                        {%  endif %}
                     </tr>
                     {% endfor %}
              
@@ -41,7 +42,8 @@
 
 
 
-
-    <button type="submit" id="butonagregarlibro" class="btn btn-light"><a href="{% url 'nuevo_libro' %}">Nuevo Libro</a></button>
+      {% if user.is_authenticated %}
+      <button type="submit" id="butonagregarlibro" class="btn btn-light"><a href="{% url 'nuevo_libro' %}">Nuevo Libro</a></button>
+      {% endif %}
 {% endblock %}
 

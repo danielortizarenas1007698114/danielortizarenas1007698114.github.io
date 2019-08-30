@@ -7,15 +7,13 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Libro, Ejemplar, Prestamo
 
 
 def cargar_inicio(request):
     return render(request, "miapp/index.html")
-
-
 
 
 class LibroList(ListView):
@@ -59,7 +57,6 @@ class EjemplarUpdate(UpdateView):
     fields = ['numeroejemplar', 'fechadecompra', 'libro']
     template_name = 'miapp/editar_ejemplar.html'
     success_url = reverse_lazy('ejemplar_libro')
-
 
 
 class EjemplarCreate(CreateView):

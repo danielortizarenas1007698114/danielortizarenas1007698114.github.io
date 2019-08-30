@@ -23,8 +23,9 @@
                         <td>{{ ejemplar.numeroejemplar }}</td>
                         <td>{{ ejemplar.fechadecompra }}</td>
                         <td>{{ ejemplar.libro }}</td>
+                        {% if user.is_authenticated %}
                         <td><button type="submit" class="btn btn-light"><a href="{% url 'editar_ejemplar' ejemplar.id %}">Editar</a></button></td>
-                        
+                        {% endif %}
                     </tr>
                 {% endfor %}
 
